@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require "xcodeproj_merge"
+
+def show_usage
+  puts "Usage: xcodeproj_merge source.xcodeproj destination.xcodeproj"
+  exit 1
+end
+
+src = ARGV.shift or show_usage
+dest = ARGV.shift or show_usage
+merge = XcodeprojMerge.new(src, dest)
+merge.call
